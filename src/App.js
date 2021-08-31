@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import './styles/App.css';
+import useInput from "./hooks/useInput";
 
 function App() {
+
+ const name = useInput('');
+ const email = useInput('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input {...name} type="text" placeholder="name"/>
+      <input {...email} type="text" placeholder="email"/>
+      <button onClick={() => console.log(name.value, email.value)}>Ok</button>
     </div>
   );
 }
